@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participation Activity 1: Club</title>
+
+    <!-- Python CDN -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: linear-gradient(160deg, #0b1c2c 0%, #12263a 40%, #0d2137 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #e0f2fe;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle scientific grid background */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .card-form {
+            background: rgba(15, 35, 55, 0.85);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 12px;
+            box-shadow:
+                0 0 0 1px rgba(56, 189, 248, 0.1),
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 440px;
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-form::before {
+            content: "LABORATORY INTERFACE";
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #38bdf8;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .form-label {
+            color: #7dd3fc;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            background: rgba(8, 25, 40, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            color: #e0f2fe;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .form-control::placeholder {
+            color: #64748b;
+        }
+
+        .form-control:focus {
+            background: rgba(8, 25, 40, 0.9);
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+            color: #f0f9ff;
+            outline: none;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 6px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: #f0f9ff;
+            transition: all 0.25s ease;
+            width: 100%;
+            margin-top: 0.75rem;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            transform: translateY(-1px);
+            color: #fff;
+        }
+
+        #output {
+            margin-top: 1.75rem;
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            background: rgba(6, 78, 59, 0.25);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            color: #6ee7b7;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            min-height: 52px;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <div class="card-form">
+        <form>
+            <!-- Credentials -->
+            <label class="form-label fw-bold">First Name:</label>
+            <input type="text" class="form-control fw-bold mb-3" placeholder="John" id="first">
+
+            <label class="form-label fw-bold">Last Name:</label>
+            <input type="text" class="form-control fw-bold mb-3" placeholder="Doe" id="last">
+
+            <input type="button" class="btn btn-success" value="Verify" py-click="get_name">
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+    <!-- Main.py connection -->
+    <py-script src="main.py"></py-script>
+</body>
+</html>
